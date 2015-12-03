@@ -8,7 +8,8 @@ Il vous faut donc créer un compte github et télécharger Git ainsi que Wamp.
 Une fois les téléchargements finis il faut lancer Wamp puis Git Bash.
 Une fois Git Bash ouvert sous Windows il faut se rendre dans C:/Wamp/www (certaines commandes linux fonctionnent comme ‘ll’ – pour ls – et ‘cd’)
 
-Taper la commande : git clone https://github.com/xdrm-brackets/NOM_DU_PROJET.git
+Taper la commande : git clone https://github.com/xdrm-brackets/intothewhile.git
+		    cd intothewhile
 
 Les commandes utiles : 
 git log -> permet de consulter l’ensemble des commit (sauvegarde) du projet
