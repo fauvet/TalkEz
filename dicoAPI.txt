@@ -1,0 +1,73 @@
+﻿Consumer Key (API Key) 8PprtKUsck6J9RVDLWJbWV2
+Consumer Secret (API Secret) B31rkJslyXQElasB1y5dZ2TgyMeqKmkeRw9Dg2xGJv49QfzJfh
+Access Token 4364654237-rqu1tnN3FRYPgQPQJ5fJU7jBMuLcYqyCpMYds4z
+Access Token Secret jaV2HPFBp4D51QXQwnpSGW9CipPwgAsF8mBDzfwhcRv8R
+Owner ID 4364654237
+
+
+#MGSU 5
+#Urgences 5
+#GestionDeCrise 7
+#MédiasSociaux 2
+#CrowdHelp 4
+#Resilience 4
+#catastrophe 5
+#climatechange 7
+#guncontrol 7
+#hospitality 8
+#lifesaving 9
+#climate 6
+#earthtoparis 7
+#fusillade 1
+#paris 1
+#prayforparis 5 
+#attentatparis 8
+#parisattacks 8
+#globalgoals 3
+#virtualreality 1
+#actionclimate 9
+#gocop21 5
+#earthrightnow 5
+#islamistheproblem 1
+#please 1
+#climateaction 9
+#need 5
+#offering 5
+#open 7
+#closed 7
+#injured 1
+#ruok 5
+#imok 5
+#trapped 5
+#look 1
+#live 1
+#rip 5
+#typhon 9
+#tsunami 9
+#cyclone 9
+#flooding 9
+#innondation
+#seisme 9
+#earthquake 9
+#feu 9
+#fire 9
+#danger 5
+#humanitaire 9
+#humanitarian 9
+#actionhumanitaire 9
+#humanitarianaction 9
+#accident 9
+#bouleversement 5
+#upheaval 5
+#calamité 5
+#calamity 5
+#cataclysme 9
+#cataclysm 9
+#désastre 9
+#disaster 9
+#détresse 7
+#distress 7
+#drame 9
+#drama 9
+#malheur 5
+#misfortune 5
