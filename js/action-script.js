@@ -5,7 +5,7 @@
 * [1] Variables globales
 * [2] Fonctions génériques
 * [3] Gestion des librairies
-*
+* [4] Gestion des sections (liens)
 *
 *
 *
@@ -64,9 +64,11 @@ function remClass(pElement, pClass){
 var pageM = new pageManager();
 
 // initialisation de pageManager()
-pageM.setPage(null, 'view', DOM.CONTAINER, ['home', 'login']);
+pageM.setPage(null, 'view', DOM.CONTAINER, ['home', 'news', 'worldmap', 'contact']);
 
 
+/* [4] Gestion des sections
+=======================================*/
 var mainLinks = document.querySelectorAll('#MENU > span[data-link]');
 for( var i = 0 ; i < mainLinks.length ; i++ ){
 
