@@ -11,11 +11,11 @@
 
 		<!-- LIBS JAVASCRIPT -->
 		<script type='text/javascript' src='js/lib/shortcut-manager.js'></script>
-		<script type='text/javascript' src='js/lib/page-manager.js'></script>
+		<script type='text/javascript' src='js/lib/page-manager.js'    ></script>
 
 	</head>
 	<body>
-	
+
 		
 		<!-- HEADER DE LA PAGE -->
 		<div id='HEADER'>
@@ -24,6 +24,10 @@
 
 		<!-- MENU DE LA PAGE -->
 		<div id='MENU'>
+			<span data-link='home'    >  Accueil         </span>
+			<span data-link='login'   >  Connexion       </span>
+			<span data-link='courses' >  Tous les cours  </span>
+			<span data-link='settings'>  Configuration   </span>
 		</div>
 
 
