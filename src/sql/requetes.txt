@@ -1,0 +1,24 @@
+// Récupère tous les lien de Tweets liés à un évènement
+
+select tw.lien 
+from Tweet tw, Event evt
+where evt.id = tw.id_event
+and evt.id = :id;
+
+// Récupère tous les libellé des hashtags d'un évènement triés par poids
+
+select hs.libelle
+from Tweet tw, Event evt, Hashtag hs
+where evt.id = tw.id_event
+and tw.id = hs.id_tweet
+and evt.id = :id
+order by hs.poids;
+
+// Récupère tous les libellés des hashtags référencant un intérêt triés par poids
+
+select hs.libelle
+from interet in, mot_cle mc, hashtag hs
+where in.id = mc.id_interet
+and mc.id = hs.id_mot_cle
+and in.id = :id
+order by hs.poids;
