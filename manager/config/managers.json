@@ -1,10 +1,10 @@
 {
   "Authentification": {
     "login":{"method": "authentification",
-      "role": 3,
+      "role": -1,
       "strict": false},
     "logout":{"method": "deconnection",
-      "role": 3,
+      "role": -1,
       "strict": false}
   }
 }

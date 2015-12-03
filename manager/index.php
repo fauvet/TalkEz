@@ -20,20 +20,18 @@ include(dirname(__FILE__).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'autoload
 $manager = new Manager();
 
 //on récupère la commande et la parse pour être executée
-if(isset($_POST['command'])){
-    $commands = explode(':',$_POST['command']);
+$json = json_decode($_POST['json'],true);
+$command = $json['command'];
+if(isset($command)){
+    $commands = explode(':',$command);
     $managerName = $commands[0];
     $managerCommand = $commands[1];
 
-    //on supprime la commande de la variable globale, les managers n'ont pas a la connaitre et a l'utiliser
-    unset($_POST['command']);
-
     //si on trouve la commande on l'execute
     if($manager->match($managerName,$managerCommand)){
-        $manager->dispatch($_POST);
+        $manager->dispatch($json);
     }else{
-        $response = json_encode(['result' => false,
-            'message' => "commande inexistante"]);
+        $response = json_encode(['result' => "commande inexistante"]);
         $objectResponse = new Response(404);
         $objectResponse->write($response);
         $objectResponse->send();
