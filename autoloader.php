@@ -4,6 +4,10 @@
  * fonction d'autoloading : prend en paramètre le nom de la classe et s'occupe d'inclure les fichiers correspondant aux classes
  */
 
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(-1);
+
 function autoloader($class) {
 
     //si on charge le StaticRepo
@@ -19,6 +23,8 @@ function autoloader($class) {
         //si on charge un manager
         if(is_file(dirname(__FILE__).DIRECTORY_SEPARATOR.'managers'.DIRECTORY_SEPARATOR.$class . '.class.php')){
             require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'managers'.DIRECTORY_SEPARATOR.$class . '.class.php';
+        }elseif(is_file(dirname(__FILE__).DIRECTORY_SEPARATOR.'Libs'.DIRECTORY_SEPARATOR.$class . '.class.php')){
+            require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'Libs'.DIRECTORY_SEPARATOR.$class . '.class.php';
         }
 
     }
