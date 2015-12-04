@@ -55,9 +55,9 @@
 	</div>
 	<div class='postChild'>
 		<img src='src/miniature1.jpg'/>
-		<h6>Jean-Michel Dutrou</h6>
+		<h6>Le tsunamie finalement effondré.</h6>
 		<p>
-			coucou<br> ça va?<br>sqldkjqslkdjq<br>sdfjdslfkjdslkfjsdkljflksdjfsdkjflksdjfmsljkdfmqlsjkfmqlsdjkfmqsdlkjfmldsqkjfmlqsdjflskj<br>sdkjflskdf
+			Finalement, le plongeur ne s'en est pas tiré. Et le tsunamie c'est arrêté en même temps que lui.
 		</p>
 	</div>
 
@@ -69,24 +69,18 @@
 
 <div class='post'>
 	<img src='src/miniature1.jpg'/>
-	<h6>Jean-Michel Dutrou</h6>
+	<h6>Ebola fait son retour.</h6>
 	<p>
-		coucou<br> ça va?<br>sqldkjqslkdjq<br>sdfjdslfkjdslkfjsdkljflksdjfsdkjflksdjfmsljkdfmqlsjkfmqlsdjkfmqsdlkjfmldsqkjfmlqsdjflskj<br>sdkjflskdf
+		Ebola est dorénavent de retour dans les pays de l'Afrique avec un taux de contagiosité 2x plus important que le précédent virus. Mettez donc un bonnet d'âne sur 
+		la tête afin de vous protéger.
 	</p>
 
 	
 	<div class='postChild'>
 		<img src='src/miniature1.jpg'/>
-		<h6>Jean-Michel Dutrou</h6>
+		<h6>Poisson d'Avril.</h6>
 		<p>
-			coucou<br> ça va?<br>sqldkjqslkdjq<br>sdfjdslfkjdslkfjsdkljflksdjfsdkjflksdjfmsljkdfmqlsjkfmqlsdjkfmqsdlkjfmldsqkjfmlqsdjflskj<br>sdkjflskdf
-		</p>
-	</div>
-	<div class='postChild'>
-		<img src='src/miniature1.jpg'/>
-		<h6>Jean-Michel Dutrou</h6>
-		<p>
-			coucou<br> ça va?<br>sqldkjqslkdjq<br>sdfjdslfkjdslkfjsdkljflksdjfsdkjflksdjfmsljkdfmqlsjkfmqlsdjkfmqsdlkjfmldsqkjfmlqsdjflskj<br>sdkjflskdf
+			Bien qu'on ne soit pas Avril, c'était effectivement bien marrant de voir l'ensemble des populations d'Afrique avec un bonnet d'âne sur la tête.
 		</p>
 	</div>
 </div>
