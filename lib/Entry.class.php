@@ -91,10 +91,6 @@ class Entry
         return $this->criteria['keyWord'];
     }
 
-    public function getDaya(): string{
-        return $this->criteria['data'];
-    }
-
     public function equals(Entry $e): bool{
         return $this->criteria['data'] == $e->getData();
     }

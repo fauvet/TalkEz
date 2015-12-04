@@ -20,7 +20,7 @@ class StaticRepo{
             static::$config = json_decode(file_get_contents(dirname(__FILE__).DIRECTORY_SEPARATOR.'config.json'),true);
         }
         if(static::$connexion == null){
-            static::$connexion = new PDO('mysql:host='.static::$config['host'].';dbname='.static::$config['database'], static::$config['login'], static::$config['password']);
+            static::$connexion = new PDO('mysql:host='.static::$config['host'].';dbname='.static::$config['database'], static::$config['login'], static::$config['password'], [PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING]);
         }
         return static::$connexion;
     }
