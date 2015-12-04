@@ -55,7 +55,8 @@
         public function selectCoordonnees(id_user) {
             $request = $this->connexion->prepare("SELECT EVT.ID
                 FROM EVENT EVT, USER U, COORDONNEES COORD
-                WHERE EVT.CURRENT = 1";
+                WHERE EVT.CURRENT = 1
+                ORDER BY this.getProximity(id_user, EVT.ID)");
             $request->execute(array( ':id_user' => $id_user ));
             
             return StaticRepo::delNumeric( $resquest->fetchAll() );
