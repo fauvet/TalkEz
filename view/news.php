@@ -1,7 +1,7 @@
-
-<?php
+<!-- <?php
 require '../repositories/EventRepo.php';
-?>
+?> -->
+
 
 <div class='post location'>
 	<input type='button' value='Me localiser' data-geolocation> ou 
@@ -88,6 +88,7 @@ require '../repositories/EventRepo.php';
 	</div>
 </div>
 
+<!--  
 <?php
 
 	$EventRepo = new EventRepo;
@@ -108,5 +109,5 @@ require '../repositories/EventRepo.php';
 		echo "$echo";
 	}
 
-?>
+?> -->
 
