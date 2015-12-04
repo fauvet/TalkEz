@@ -1,5 +1,6 @@
-/* POUR LES .post */
-#CONTAINER > div.post{
+/* POUR LES .postChild */
+#CONTAINER > div.post,
+#CONTAINER > div.post.active > div.postChild{
 	/* position */
 	display: block;
 	position: relative;
@@ -24,19 +25,36 @@
 	cursor: pointer;
 }
 
+#CONTAINER > div.post > div.postChild{
+	display: none;
+}
+
+/* TAILLE .postChild */
+#CONTAINER  > div.post > div.postChild{
+	width: calc( 100% - 2*1em );
+}
+
+/* PREMIER .postChild */
+#CONTAINER  > div.post.active > div.postChild:first-child{
+	margin-top: 2em;
+}
+
 /* @hover */
-#CONTAINER > div.post:hover{
+#CONTAINER > div.post:first-child:hover,
+#CONTAINER > div.post > div.postChild:hover{
 	background-color: #f5f8fa;
 }
 
 /* POUR LE PREMIER POST */
-#CONTAINER > div.post:first-child{
+#CONTAINER > div.post:first-child,
+#CONTAINER > div.post > div.postChild:first-child{
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 }
 
 /* POUR LE DERNIER POST */
-#CONTAINER > div.post:last-child{
+#CONTAINER > div.post:last-child,
+#CONTAINER > div.post > div.postChild:last-child{
 	border-bottom: 1px solid #e1e8ed;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
@@ -51,7 +69,8 @@
 
 
 /* MINIATURE */
-#CONTAINER > div.post > img{
+#CONTAINER > div.post > img,
+#CONTAINER > div.post > div.postChild > img{
 	/* position */
 	display: inline-block;
 	position: absolute;
@@ -64,7 +83,8 @@
 
 
 /* TITRE */
-#CONTAINER > div.post > h6{
+#CONTAINER > div.post > h6,
+#CONTAINER > div.post > div.postChild > h6{
 	/* position */
 	display: inline-block;
 	position: absolute;
@@ -74,7 +94,8 @@
 }
 
 /* ZONE DE TEXTE */
-#CONTAINER > div.post > p{
+#CONTAINER > div.post > p,
+#CONTAINER > div.post > div.postChild > p{
 	/* position */
 	display: inline-block;
 	position: relative;
@@ -89,10 +110,12 @@
 /* LOCALISATION */
 #CONTAINER > div.post.location{
 	/*background: #5a8ab5;*/
+	color: #b9b9b9;
 }
 
 /* localisation */
-#CONTAINER > div.post.location > input{
+#CONTAINER > div.post.location > input[type=button]:nth-child(1),
+#CONTAINER > div.post.location > input[type=button]:nth-child(2){
 	/* position */
 	display: inline-block;
 	position: relative;
@@ -112,7 +135,38 @@
 	cursor: pointer;
 }
 
-#CONTAINER > div.post.location > input:nth-child(2){
+
+#CONTAINER > div.post.location > input[type=button]:nth-child(2){
 	border-color: #26ca67;
 	background-color: #26ca67;
+
+	border-radius: 5px 0 0 5px;
+}
+
+/* 1 @hover */
+#CONTAINER > div.post.location > input[type=button]:nth-child(1):hover{
+	border-color: #2e73ff;
+	background-color: #2e73ff;
+}
+
+/* 2 @hover */
+#CONTAINER > div.post.location > input[type=button]:nth-child(2):hover{
+	border-color: #26d16b;
+	background-color: #26d16b;
+}
+
+#CONTAINER > div.post.location > input[type=text]:nth-child(3){
+	/* position */
+	display: inline-block;
+	position: relative;
+		width: auto;
+		margin-left: -4px;
+	padding: calc( .2em + 1px ) .5em;
+
+	/* border */
+	border-radius: 0 5px 5px 0;
+	border: 1px solid #ccc;
+
+
+
 }
