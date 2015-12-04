@@ -30,13 +30,13 @@
 }
 
 /* TAILLE .postChild */
-#CONTAINER  > div.post > div.postChild{
+#CONTAINER  > div.post.active > div.postChild{
 	width: calc( 100% - 2*1em );
 }
 
 /* PREMIER .postChild */
-#CONTAINER  > div.post.active > div.postChild:first-child{
-	margin-top: 2em;
+#CONTAINER  > div.post.active > div.postChild:nth-child(4){
+	margin-top: 1em;
 }
 
 /* @hover */
@@ -47,7 +47,7 @@
 
 /* POUR LE PREMIER POST */
 #CONTAINER > div.post:first-child,
-#CONTAINER > div.post > div.postChild:first-child{
+#CONTAINER > div.post > div.postChild:nth-child(4){
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 }
@@ -169,4 +169,19 @@
 
 
 
+}
+
+
+
+
+/* STYLE DE LA LIVE-MAP */
+#CONTAINER > #live-map{
+	/* position */
+	display: block;
+	position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: calc( 100% - 5em - 2em - 2*2px );
+	
 }

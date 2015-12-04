@@ -14,6 +14,22 @@
 	<p>
 		coucou<br> ça va?<br>sqldkjqslkdjq<br>sdfjdslfkjdslkfjsdkljflksdjfsdkjflksdjfmsljkdfmqlsjkfmqlsdjkfmqsdlkjfmldsqkjfmlqsdjflskj<br>sdkjflskdf
 	</p>
+
+
+	<div class='postChild'>
+		<img src='src/miniature1.jpg'/>
+		<h6>Jean-Michel Dutrou</h6>
+		<p>
+			coucou<br> ça va?<br>sqldkjqslkdjq<br>sdfjdslfkjdslkfjsdkljflksdjfsdkjflksdjfmsljkdfmqlsjkfmqlsdjkfmqsdlkjfmldsqkjfmlqsdjflskj<br>sdkjflskdf
+		</p>
+	</div>
+	<div class='postChild'>
+		<img src='src/miniature1.jpg'/>
+		<h6>Jean-Michel Dutrou</h6>
+		<p>
+			coucou<br> ça va?<br>sqldkjqslkdjq<br>sdfjdslfkjdslkfjsdkljflksdjfsdkjflksdjfmsljkdfmqlsjkfmqlsdjkfmqsdlkjfmldsqkjfmlqsdjflskj<br>sdkjflskdf
+		</p>
+	</div>
 </div>
 
 
@@ -55,5 +71,21 @@
 	<p>
 		coucou<br> ça va?<br>sqldkjqslkdjq<br>sdfjdslfkjdslkfjsdkljflksdjfsdkjflksdjfmsljkdfmqlsjkfmqlsdjkfmqsdlkjfmldsqkjfmlqsdjflskj<br>sdkjflskdf
 	</p>
+
+	
+	<div class='postChild'>
+		<img src='src/miniature1.jpg'/>
+		<h6>Jean-Michel Dutrou</h6>
+		<p>
+			coucou<br> ça va?<br>sqldkjqslkdjq<br>sdfjdslfkjdslkfjsdkljflksdjfsdkjflksdjfmsljkdfmqlsjkfmqlsdjkfmqsdlkjfmldsqkjfmlqsdjflskj<br>sdkjflskdf
+		</p>
+	</div>
+	<div class='postChild'>
+		<img src='src/miniature1.jpg'/>
+		<h6>Jean-Michel Dutrou</h6>
+		<p>
+			coucou<br> ça va?<br>sqldkjqslkdjq<br>sdfjdslfkjdslkfjsdkljflksdjfsdkjflksdjfmsljkdfmqlsjkfmqlsdjkfmqsdlkjfmldsqkjfmlqsdjflskj<br>sdkjflskdf
+		</p>
+	</div>
 </div>
 
