@@ -11,7 +11,7 @@
 		<link rel='stylesheet' href='css/menu.css'  />
 		<link rel='stylesheet' href='css/container.css'  />
 
-		<!-- LIBS JAVASCRIPT -->
+		<!-- LIBS JAVASCRIPT --><script type='text/javascript' src="https://maps.googleapis.com/maps/api/js"></script>
 		<script type='text/javascript' src='js/lib/shortcut-manager.js'></script>
 		<script type='text/javascript' src='js/lib/page-manager.js'    ></script>
 
