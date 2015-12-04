@@ -30,8 +30,8 @@ function autoloader($class) {
         //si on charge un manager
         if(is_file(dirname(__FILE__).DIRECTORY_SEPARATOR.'manager'.DIRECTORY_SEPARATOR.$class . '.class.php')){
             require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'manager'.DIRECTORY_SEPARATOR.$class . '.class.php';
-        }elseif(is_file(dirname(__FILE__).DIRECTORY_SEPARATOR.'libs'.DIRECTORY_SEPARATOR.$class . '.class.php')){
-            require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'libs'.DIRECTORY_SEPARATOR.$class . '.class.php';
+        }elseif(is_file(dirname(__FILE__).DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.$class . '.class.php')){
+            require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.$class . '.class.php';
         }
     }
 }
