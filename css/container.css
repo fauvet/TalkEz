@@ -9,7 +9,7 @@
 
 	/* border */
 	border: 1px solid #e1e8ed;
-	border-bottom: 0;
+	border-top: 0;
 
 	/* background */
 	background-color: #fff;
@@ -24,6 +24,29 @@
 	/* extra */
 	cursor: pointer;
 }
+
+#CONTAINER > div.post.active:hover,
+#CONTAINER > div.post.active{
+	/* position */
+	width: calc( 100% - 2*1em - 2px );
+	margin: 1em;
+	
+	/* border */
+	border-radius: 5px;
+	border: 1px solid #e1e8ed;
+
+	/* background */
+	background: #fff;
+
+	/* extra */
+	cursor: default;
+}
+
+#CONTAINER > div.post.active + div.post{
+	border-top: 1px solid #e1e8ed;
+}
+
+
 
 #CONTAINER > div.post > div.postChild{
 	display: none;
@@ -48,6 +71,7 @@
 /* POUR LE PREMIER POST */
 #CONTAINER > div.post:first-child,
 #CONTAINER > div.post > div.postChild:nth-child(4){
+	border-top: 1px solid #e1e8ed;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 }
@@ -55,7 +79,6 @@
 /* POUR LE DERNIER POST */
 #CONTAINER > div.post:last-child,
 #CONTAINER > div.post > div.postChild:last-child{
-	border-bottom: 1px solid #e1e8ed;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 }
