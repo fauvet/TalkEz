@@ -1,0 +1,50 @@
+/* #ICON du #MENU */
+#MENU > div#ICON{
+	/* position */
+	display: inline-block;
+	position: absolute;
+		width: 10em;
+		height: 100%;
+
+	/* background */
+	background: transparent url(../src/icon.svg) center center no-repeat;
+	background-size: 80% auto;
+}
+
+
+
+/* ÉLÉMENTS DU #MENU */
+#MENU > span[data-link]{
+	/* position */
+	display: inline-block;
+	position: relative;
+		height: calc( 100% - 6px );
+	padding: 0 1em;
+	margin: 0 1em;
+
+	/* border */
+	border-bottom: 5px solid #fff;
+
+	/* foreground */
+	font-size: .8em;
+
+	/* extra */
+	cursor: pointer;
+
+	/* animation */
+	transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-webkit-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+}
+
+#MENU > span[data-link]:nth-child(2){
+	margin-left: 15em;
+}
+
+#MENU > span[data-link]:hover,
+#MENU > span[data-link].active{
+	color: #395166;
+	border-color: #4d6c88;
+}
