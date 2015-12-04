@@ -8,6 +8,9 @@ function startsWith($haystack, $needle) {
     // search backwards starting from haystack length characters from the end
     return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== FALSE;
 }
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(-1);
 
 function autoloader($class) {
 
@@ -27,6 +30,8 @@ function autoloader($class) {
         //si on charge un manager
         if(is_file(dirname(__FILE__).DIRECTORY_SEPARATOR.'manager'.DIRECTORY_SEPARATOR.$class . '.class.php')){
             require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'manager'.DIRECTORY_SEPARATOR.$class . '.class.php';
+        }elseif(is_file(dirname(__FILE__).DIRECTORY_SEPARATOR.'Libs'.DIRECTORY_SEPARATOR.$class . '.class.php')){
+            require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'Libs'.DIRECTORY_SEPARATOR.$class . '.class.php';
         }
     }
 }
