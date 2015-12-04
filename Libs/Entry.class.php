@@ -22,29 +22,40 @@ class Entry
         $this->weight = $this->calcWeigth();
     }
 
+    /** Calcule le poid d'un message (en fonction de ses mots clé et du poid de ceux-ci, le calcul se fait en fonction du poid du mot clé mais aussi
+     * de la taille du message, pour pénaliser les mots clé isolés
+     * @return int
+     */
     public function calcWeigth() : int{
         $criteria = &$this->criteria;
         $multiplicateur = 1;
         foreach($criteria['keyWord'] as $key){
             $multiplicateur *= 1+0.8*$key[1]*(count($this->criteria['keyWord'])/30);
         }
-        foreach($criteria['isRelated'] as $link){
-            $multiplicateur *= 1+1.5*$link.getweigth();
-        }
         return $multiplicateur/(0.01*strlen($this->criteria['data']));
     }
 
+    /**
+     * extrait les mots clé et hashtag étant contenu par le message
+     */
     private function extractKeyWord(){
         $data = $this->criteria['data'];
         $this->criteria['keyWord'] = [];
-        $keywords = explode(' ',$data);
         foreach($this->keyWords as $keyword){
-            if(strpos($data,$keyword[0]) !== false or strpos($data,'#'.str_replace(' ','',$keyword[0])) !== false ){
+            //si notre mot clé peut être identifié tel quel dans la chaine (expression avec espace, etc...)
+            if(strpos($data,$keyword[0]) !== false ){
                 array_push($this->criteria['keyWord'],$keyword);
                 $hashtag = $keyword;
                 $hashtag[0] = '#'.str_replace(' ','',$keyword[0]);
                 $hashtag[1] *= 3;
                 array_push($this->criteria['keyWord'],$hashtag);
+                //si c'est un hashtag (plus d'imporance)
+            }elseif(strpos($data,'#'.str_replace(' ','',$keyword[0])) !== false){
+                $hashtag = $keyword;
+                $hashtag[0] = '#'.str_replace(' ','',$keyword[0]);
+                $hashtag[1] *= 3;
+                array_push($this->criteria['keyWord'],$hashtag);
+                //si c'est un mot collé mais toujours identifiable
             }elseif(strpos(str_replace(' ','',$data),$keyword[0]) !== false and strpos($keyword[0],'#') !== false){
                 array_push($this->criteria['keyWord'],$keyword);
                 $hashtag = $keyword;
@@ -55,6 +66,10 @@ class Entry
         }
     }
 
+    /**retourne un poid correspondant aux points commun entre deux entries
+     * @param Entry $e
+     * @return int
+     */
     public function getCommonWeight(Entry $e) : int{
         $keywordsA = $e->getKeywords();
         $weigth = 0;

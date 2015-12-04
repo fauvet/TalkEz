@@ -14,24 +14,35 @@ class EventParser
 
     private $keyword = [];
 
+    /**
+     * EventParser constructor.: a besoin d'une liste de message et d'une liste de mot clé avec leur poid
+     * @param array $items
+     * @param array $keywords
+     */
     public function __construct(array $items,array $keywords){
         $this->items = $items;
 
         $this->keyword = $keywords;
     }
 
+    /** Parse tout les messages et les tris dans des évenements
+     * @return bool
+     */
     public function detectEvents(): bool{
         $returned = [];
         $entries = [];
+        //on passe tout en minuscule par sécurité
         foreach($this->items as $item){
-            $entry = new Entry(['data' => strtolower($item),'isRelated' => []],$this->keyword);
+            $entry = new Entry(['data' => strtolower($item)],$this->keyword);
             array_push($entries,$entry);
         }
         $commons=[[]];
         $alreadyDone = [];
         $size = 0;
+        //on parcours tout les messages
         foreach($entries as $entry){
 
+            //vérification anti-doublon
             $stop = false;
             foreach($alreadyDone as $done){
                 if($done->equals($entry)){
@@ -42,8 +53,10 @@ class EventParser
                 continue;
             }
 
+            //on parcours les autres messages
             foreach($entries as $entryTarget){
 
+                //vérification anti-doublon
                 $stop = false;
                 foreach($alreadyDone as $done){
                     if($done->equals($entryTarget)){
@@ -55,9 +68,12 @@ class EventParser
                 }
 
 
+                //on compare les messages et détecte un seuil de similarité pour savoir lesquels sont en rapport
                 $found = false;
                 foreach($commons as $key => $common){
+                    //on parcours nos evenements pour trouver si un évenement peut être en rapport avec notre message
                     foreach($common as $entryIn){
+                        //calcul du seuil
                         if($entryTarget->getCommonWeight($entryIn) > $entryTarget->getWeight()/30){
                             $found = true;
                             array_push($commons[$key],$entryTarget);
@@ -69,6 +85,7 @@ class EventParser
                         }
                     }
                 }
+                //si le message n'a pas d'évenement qui lui conviens, on en créer un
                 if(!$found){
                     $size++;
                     $commons[$size] = [];
@@ -81,6 +98,7 @@ class EventParser
             }
         }
 
+        //on range tout comme il faut
         foreach($commons as $common){
             $event = new Event();
             foreach($common as $entry){
@@ -89,10 +107,14 @@ class EventParser
             array_push($returned,$event);
         }
 
+        //et c'est parti mon kiki
         $this->events = $returned;
         return true;
     }
 
+    /**
+     * @return mixed
+     */
     public function getEvents() :array{
         return $this->events;
     }
