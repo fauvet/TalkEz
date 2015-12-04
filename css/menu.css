@@ -7,8 +7,10 @@
 		height: 100%;
 
 	/* background */
-	background: transparent url(../src/icon.svg) center center no-repeat;
-	background-size: 80% auto;
+	/*background: transparent url(../src/icon.svg) center center no-repeat;*/
+	/*background-size: 80% auto;*/
+	background: transparent url(../src/logo_itw.png) center center no-repeat;
+	background-size: 50% 80%;
 }
 
 

@@ -82,3 +82,9 @@ for( var i = 0 ; i < mainLinks.length ; i++ ){
 	}, false);
 
 }
+// on selectionne la première par défaut si aucune n'est active
+addClass( document.querySelector('#MENU > span[data-link='+pageM.page+']'), 'active' );
+
+
+
+var geoLoc;
