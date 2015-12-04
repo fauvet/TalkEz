@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+        <style type="text/css">
+            html { height: 100% }
+            body { height: 100%; margin: 0px; padding: 0px }
+            form { width: 30%; display:inline-block;}
+            #map_canvas { height: 100% ; width:100%;}
+            .info-marker span {
+                color: rgb(5, 124, 190);
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+        </style>
+
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js"></script>
+<script>
+var carte; // variable qui contiendra les donnees de la carte
+var poly; //variable qui contiendra les donnes du polyline
+var coord = []; // variable qui contiendra les coordonnees
+var markers = []; //contiendra tout les marqueurs
+
+//Gestion des informatioon d affichages
+var infowindow = [];
+
+    initMap = function()
+    {
+
+                carte = new google.maps.Map(document.getElementById("map_canvas"),{
+                    zoom:3,
+                    center: new google.maps.LatLng(45.77966,3.08628),
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                });
+
+                poly = new google.maps.Polyline({
+                  path: coord,
+                  geodesic: true,
+                  strokeColor: 'blue',
+                  strokeOpacity: 1.0,
+                  strokeWeight: 3
+                });
+                poly.setMap(carte);
+
+    }
+</script>
+  
+</head>
+	<body>
+        <div id="map_canvas"></div>
+    </body>
+</html>
+
+<script>
+    addCoord = function(x, y)
+	{
+        //alert(x +","+y);
+		coord.push(new google.maps.LatLng(x,y));
+        //poly.setMap(carte);
+        //poly.setPath(coord);
+	}
+
+    /*ajoute un marqueur */
+	addMarker = function(num)
+	{
+		var marker = new google.maps.Marker({
+			position: coord[num],
+			map : carte
+		});
+        markers.push(marker);
+        console.log(markers);
+	}
+
+    addMarkerInfo = function(num, texte)
+    {
+         infowindow.push(new google.maps.InfoWindow({
+            content: texte
+        }));
+
+        var marker = new google.maps.Marker({
+            position: coord[num],
+            map: carte 
+        });
+
+        marker.addListener('click', function(){
+            infowindow[num].open(carte, marker);
+        });
+    }
+
+    /*ajoute un marqueur avec un libelle */
+	addMarkerLibelle = function(num, libelle)
+	{
+		var marker = new google.maps.Marker({
+			position: coord[num],
+			label: libelle,
+			map : carte
+		});
+        markers.push(marker);
+        console.log(markers);
+	}
+
+    /*ajoute tout les marqueurs contenu dans coord */
+	addAllMarkerLibelle = function()
+	{
+		var i = 0;
+		while(coord.length > i)
+		{
+			addMarkerLibelle(i, 'A');
+			i += 1;
+		}
+	}
+
+    /* changer la couleur d un marqueur */
+
+
+    /*supprime tout les marqueur */
+    removeAllMarker = function()
+    {
+        var i=0;
+        while(markers.length > i)
+        {
+            markers[i].setMap(null);
+            i++;
+        }
+    }
+
+    /* ajoute tout les chemins li3 a coordonnee */
+    addPath = function(){
+        poly.setMap(carte);
+	    poly.setPath(coord);
+    }
+
+    removePath = function(){
+        poly.setMap(null);
+    }
+
+    /* permet la supression des marker et des chemin */
+    removeMarkerPath = function(){
+        removeAllMarker();
+        removePath();
+    }
+    initMap();
+    //addCoord(1,1);
+    //addMarkerInfo(0,"<h1>1)Origine</h1><p>ip de base : </p><p>evil corp</p>");
+    //addCoord(1,10);
+    //addPath();
+    //addCoord(10,10);
+    //addMarkerInfo(0,"<h1>1)Origine</h1><p>ip de base : </p><p>evil corp</p>");
+    /*addMarkerInfo(1,"<h1>2)*******</h1><p>ip de base : </p><p>evil corp</p>");
+    addMarkerInfo(2,"<h1>3)&&&&&&</h1><p>ip de base : 194.28.12.1</p><p>evil corp</p>");*/
+</script>
