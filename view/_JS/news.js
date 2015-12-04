@@ -26,7 +26,7 @@ for( var i = 0 ; i < postTab.length ; i++ ){
 		if( postTab.indexOf(e.target) >= 0 ){ // si c'est un post (référencé)
 			remClass( document.querySelector('#CONTAINER > .post.active'), 'active' );
 			addClass( e.target, 'active' );
-		}else if( postTab.indexOf(e.target.parentNode) ){ // si c'est un post (référencé)
+		}else if( postTab.indexOf(e.target.parentNode) >= 0 ){ // si c'est un post (référencé)
 			remClass( document.querySelector('#CONTAINER > .post.active'), 'active' );
 			addClass( e.target.parentNode, 'active' );
 		}

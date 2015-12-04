@@ -13,6 +13,7 @@
 
 		<!-- LIBS JAVASCRIPT -->
 		<script type='text/javascript' src='js/lib/adjust.js'          ></script>
+		<script type='text/javascript' src='js/lib/maps-api.js'></script>
 		<script type='text/javascript' src='js/lib/shortcut-manager.js'></script>
 		<script type='text/javascript' src='js/lib/page-manager.js'    ></script>
 		<script type='text/javascript' src="https://maps.googleapis.com/maps/api/js"></script>
@@ -37,13 +38,7 @@
 
 		<!-- CONTAINER DE LA PAGE -->
 		<div id='CONTAINER'>
-
-<<<<<<< HEAD
-		
-
-=======
 		</div>
->>>>>>> 501d03dd3511a7f91a6a3add8b487eef4cc0632b
 
 
 		<script type='text/javascript' src='js/action-script.js'></script>

@@ -15,6 +15,10 @@ body{
 	/* foreground */
 	font-size: 16px;
 	font-family: 'Ubuntu', 'Open Sans', 'sans-serif';
+	
+	/* scroll */
+	overflow: auto;
+	overflow-x: hidden;
 }
 
 

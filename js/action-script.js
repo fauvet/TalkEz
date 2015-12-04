@@ -26,6 +26,8 @@ var DOM = {
 	CONTAINER: document.querySelector('body > #CONTAINER')
 };
 
+// contiendra les coordonnées de l'utilisateur
+var geoLoc;
 
 
 
@@ -64,7 +66,7 @@ function remClass(pElement, pClass){
 var pageM = new pageManager();
 
 // initialisation de pageManager()
-pageM.setPage(null, 'view', DOM.CONTAINER, ['home', 'news', 'worldmap', 'contact']);
+pageM.setPage(null, 'view', DOM.CONTAINER, ['news', 'worldmap', 'contact']);
 
 
 /* [4] Gestion des sections
@@ -82,9 +84,5 @@ for( var i = 0 ; i < mainLinks.length ; i++ ){
 	}, false);
 
 }
-// on selectionne la première par défaut si aucune n'est active
+// on selectionne la première par défaut si aucune n'est active (et on charge la page si elle n'est pas définie)
 addClass( document.querySelector('#MENU > span[data-link='+pageM.page+']'), 'active' );
-
-
-
-var geoLoc;
