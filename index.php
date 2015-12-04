@@ -38,7 +38,12 @@
 		<!-- CONTAINER DE LA PAGE -->
 		<div id='CONTAINER'>
 
+<<<<<<< HEAD
+		
+
+=======
 		</div>
+>>>>>>> 501d03dd3511a7f91a6a3add8b487eef4cc0632b
 
 
 		<script type='text/javascript' src='js/action-script.js'></script>
