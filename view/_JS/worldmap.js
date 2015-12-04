@@ -74,7 +74,7 @@ map.append({
 
 
 map.append({
-	nom: "Nuit de l'Info",
+	nom: 'Nuit de lInfo',
 	msg: 'Ce Tourna2 fut débuta le 230/32239 à 19:90<br>Il eu fume au total 879 morts',
 	lat: 43.8,
 	lng: 1.04,

@@ -5,7 +5,7 @@
 	display: block;
 	position: relative;
 		width: calc( 100% - 2px );
-	padding: 1em;
+	padding: 1em 2em;
 
 	/* border */
 	border: 1px solid #e1e8ed;
@@ -31,7 +31,7 @@
 
 /* TAILLE .postChild */
 #CONTAINER  > div.post.active > div.postChild{
-	width: calc( 100% - 2*1em );
+	width: calc( 100% - 2*2em );
 }
 
 /* PREMIER .postChild */
@@ -40,7 +40,7 @@
 }
 
 /* @hover */
-#CONTAINER > div.post:first-child:hover,
+#CONTAINER > div.post:hover,
 #CONTAINER > div.post > div.postChild:hover{
 	background-color: #f5f8fa;
 }
