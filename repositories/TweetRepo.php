@@ -3,84 +3,37 @@
 class TweetRepo
 {
 
-	public static function addTweets($tweets)
+	public static function exists($id)
 	{
-		foreach ($tweets as $tweet)
-		{
-			$author_id = self::getOrCreateAuthor($tweet['user']);
-			$localisation_id = ($tweet['localisation'] != null ? self::getOrCreateLocalisation($tweet['localisation']) : null);
-			self::insertTweet($author_id, $location_id, $tweet);
-
-			foreach ($tweet['hashtags'] as $hashtag)
-				self::insertHashtag($tweet['id'], $hashtag);
-
-		}
-	}
-
-	public static function authorExists($author_id)
-	{
-		$query = StaticRepo::getConnexion()->prepare('SELECT COUNT(*) FROM Author WHERE id = :id');
-		$query->execute([':id' => $author_id]);
+		$query = StaticRepo::getConnexion()->prepare('SELECT COUNT(*) FROM tweet WHERE ID = :id');
+		$query->execute([':id' => $id]);
 		return $query->fetchColumn() == 1;
 	}
 
-	public static function insertAuthor($user)
+	public static function addAll($tweets)
 	{
-		if (!self::authorExists($user['id']))
+		foreach ($tweets as $tweet)
 		{
-			$query = StaticRepo::getConnexion()->prepare('INSERT INTO Author VALUES (:id, :name, :screen_name, :image_url)');
-			$query->execute([':id' => $user['id'],
-							 ':name' => $user['name'],
-							 ':screen_name' => $user['screen_name'],
-							 ':image_url' => $user['image_url']]);
-		}
-	}
-
-	public static function getOrCreateHashtagId($hashtag)
-	{
-		$query = StaticRepo::getConnexion()->prepare('SELECT id FROM Hashtag WHERE libelle = :libelle');
-		$query->execute([':libelle' => $hashtag]);
-		$hashtag = $query->fetch();
-
-		if ($hashtag !== false)
-			return $hashtag['id'];
-
-		$query = StaticRepo::getConnexion()->prepare('INSERT INTO hashtag (libelle) VALUES (:libelle)');
-		$query->execute([':libelle' => $hashtag]);
-		return StaticRepo::getConnexion()->lastInsertId();
-	}
-
-	public static function insertHashtag($tweet_id, $hashtag)
-	{
-		$query = StaticRepo::getConnexion()->prepare('INSERT INTO contenir VALUES (:tweet_id, :hashtag_id)');
-		$query->execute([':tweet_id' => $tweet_id,
-						 ':hashtag_id' => self::getOrCreateHashtagId($hashtag)]);
-	}
-
-		public static function exists(int $id){
-		$statement = StaticRepo::getConnexion()->prepare("SELECT * FROM tweet WHERE ID = :id");
-		$ret = $statement->exec(array(':id' => $id));
-		$tab = $ret->fetch();
-		return isset($tab['ID']);
-	}
-
-	public static function add($lien, $contenu, $nbfav, $nbRT, $localisation, $langue, $auteur){
-		$statement = StaticRepo::getConnexion()->prepare("INSERT INTO `tweet`(`LIEN`, `CONTENU`, `NB_FAVORIS`, `NB_RT`, `LOCALISATION`, `LANGUE`, `AUTHOR`)
-								 VALUES (':lien', ':contenu', ':nbfav', :nbRT, ':localisation', ':langue', :auteur);");
-		$ret = $statement->exec(array(	'lien' => ));
-		//On teste l'existance de l'auteur du tweet dans la bdd
-		if (AuthorRepo::exists()){
-			//On teste l'existence de la localisation aussi
-			if(LocalisationRepo::exists()){
-				
-			}
-			else { //sinon... on crée la localisation
-				LocalisationRepo::add();
+			// Si le tweet n'est pas dans la table
+			if (!self::exists($tweet['id']))
+			{
+				// Création author si il n'exite pas
+				$author_id = AuthorRepo::getOrCreate($tweet['user']['id'], $tweet['user']['name'], $tweet['user']['screen_name'], $tweet['user']['image_url']);
+				// Création localisation si nécessaire
+				$localisation_id = ($tweet['localisation'] != null ? CoordonneesRepo::getOrCreate($tweet['localisation']) : null);
+				// Insertion tweet
+				self::add($tweet['id'], $tweet['link'], $tweet['content'], $tweet['nb_favourites'], $tweet['nb_retweet'], $localisation_id, $tweet['language'], $author_id);
+				// Link du tweet avec ses hastags
+				foreach ($tweet['hashtags'] as $hashtag)
+					HashtagRepo::linkHashtag($tweet['id'], $hashtag);
 			}
 		}
-		else { // sinon on crée l'auteur
-			AuthorRepo::add();
-		}
+	}
+
+	private static function add($id, $lien, $contenu, $nbfav, $nbRT, $localisation, $langue, $auteur){
+		$query = StaticRepo::getConnexion()->prepare('INSERT INTO `tweet`(`ID`, `LIEN`, `CONTENU`, `NB_FAVORIS`, `NB_RT`, `LOCALISATION`, `LANGUE`, `AUTHOR`)
+								 VALUES (:id, :lien, :contenu, :nbfav, :nbRT, :localisation, :langue, :auteur)');
+		$query->execute([':id' => $id, ':lien' => $lien, ':contenu' => $contenu, ':nbfav' => $nbfav, ':nbRt' => $nbRT, ':localisation' => $localisation, ':langue' => $langue, ':auteur' => $auteur]);
 	}
 
 }

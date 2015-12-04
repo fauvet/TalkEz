@@ -40,7 +40,7 @@ class Twitter
 			}
 			$i++;
 		}
-		TweetRepo::addTweets($tweets);
+		TweetRepo::addAll($tweets);
 	}
 
 }
