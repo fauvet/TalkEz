@@ -12,8 +12,10 @@
 		<link rel='stylesheet' href='css/container.css'  />
 
 		<!-- LIBS JAVASCRIPT -->
+		<script type='text/javascript' src='js/lib/adjust.js'          ></script>
 		<script type='text/javascript' src='js/lib/shortcut-manager.js'></script>
 		<script type='text/javascript' src='js/lib/page-manager.js'    ></script>
+		<script type='text/javascript' src="https://maps.googleapis.com/maps/api/js"></script>
 
 	</head>
 	<body>

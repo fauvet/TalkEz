@@ -10,39 +10,26 @@
      88           `8a8'     `8a8'      88       88            88       88           88     `8b   
      88            `8'       `8'       88       88            88       88888888888  88      `8b  
 *************************************************************************************************/
-
-require "src/APITwitter/vendor/autoload.php";
-
-use Abraham\TwitterOAuth\TwitterOAuth;
+use Lib\TwitterOAuth\TwitterOAuth;
 /*
 *
 */
-function twitter_switch_lvl_1($request, $answer) {
+function twitter_switch_lvl_1() {
 
 	//Inclusion de l'API Twitter
+	//Tous ces acces sont disponibles pour le compte d'Aurélien sur le site développeur de twitter
+	$consumer         = '8PprtKUsck60J9RVDL0WJbWV2' ;
+	$cosumerSecret    = 'B31rkJslyXQElasB1y5dZ2TgyMeqKmkeRw9Dg2xGJv49QfzJfh' ;
+	$accesToken       = '4364654237-rqu1tnN3FRYPgQPQJ5fJU7jBMuLcYqyCpMYds4z' ;
+	$accesTokenSecret = 'jaV2HPFBp4D51QXQwnpSGW9CipPwgAsF8mBDzfwhcRv8R' ;
+	//On instacie la connexion à Twitter
+	$twitter = new TwitterOAuth($consumer, $cosumerSecret, $accesToken, $accesTokenSecret);
 
-	
-	if (isset($request->level_1)) {
+	$tweets = $twitter->get("https://api.twitter.com/1.1/search/tweets.json?q=%23freebandnames&since_id=24012619984051000&max_id=250126199840518145&result_type=mixed&count=4");
+	print_r($tweets);
 
-		switch ($request->level_1) {
-			case 'test':
-				//Tous ces acces sont disponibles pour le compte d'Aurélien sur le site développeur de twitter
-				$consumer         = '8PprtKUsck60J9RVDL0WJbWV2' ;
-				$cosumerSecret    = 'B31rkJslyXQElasB1y5dZ2TgyMeqKmkeRw9Dg2xGJv49QfzJfh' ;
-				$accesToken       = '4364654237-rqu1tnN3FRYPgQPQJ5fJU7jBMuLcYqyCpMYds4z' ;
-				$accesTokenSecret = 'jaV2HPFBp4D51QXQwnpSGW9CipPwgAsF8mBDzfwhcRv8R' ;
-				//On instacie la connexion à Twitter
-				$twitter = new TwitterOAuth($consumer, $cosumerSecret, $accesToken, $accesTokenSecret);
-
-				$answer->tweets = $twitter->get("https://api.twitter.com/1.1/search/tweets.json?q=%23freebandnames&since_id=24012619984051000&max_id=250126199840518145&result_type=mixed&count=4");
-				
-				break;
-			
-			default:
-				$answer->request = 'error level_1';
-				break;
-		}
-	}
 }
+
+twitter_switch_lvl_1();
 
 ?>
