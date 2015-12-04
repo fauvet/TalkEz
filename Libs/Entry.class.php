@@ -19,7 +19,6 @@ class Entry
         $this->keyWords = $words;
         $this->criteria = $criteria;
         $this->extractKeyWord();
-
         $this->weight = $this->calcWeigth();
     }
 
@@ -27,7 +26,7 @@ class Entry
         $criteria = &$this->criteria;
         $multiplicateur = 1;
         foreach($criteria['keyWord'] as $key){
-            $multiplicateur *= 1+0.8*$key[1];
+            $multiplicateur *= 1+0.8*$key[1]*(count($this->criteria['keyWord'])/30);
         }
         foreach($criteria['isRelated'] as $link){
             $multiplicateur *= 1+1.5*$link.getweigth();
@@ -40,11 +39,18 @@ class Entry
         $this->criteria['keyWord'] = [];
         $keywords = explode(' ',$data);
         foreach($this->keyWords as $keyword){
-            if(strpos($data,$keyword[0]) !== false){
+            if(strpos($data,$keyword[0]) !== false or strpos($data,'#'.str_replace(' ','',$keyword[0])) !== false ){
                 array_push($this->criteria['keyWord'],$keyword);
-            }
-            if(strpos(str_replace(' ','',$data),$keyword[0]) !== false and strpos($keyword[0],'#') !== false and strpos($data,$keyword[0]) == false){
+                $hashtag = $keyword;
+                $hashtag[0] = '#'.str_replace(' ','',$keyword[0]);
+                $hashtag[1] *= 3;
+                array_push($this->criteria['keyWord'],$hashtag);
+            }elseif(strpos(str_replace(' ','',$data),$keyword[0]) !== false and strpos($keyword[0],'#') !== false){
                 array_push($this->criteria['keyWord'],$keyword);
+                $hashtag = $keyword;
+                $hashtag[0] = '#'.str_replace(' ','',$keyword[0]);
+                $hashtag[1] *= 3;
+                array_push($this->criteria['keyWord'],$hashtag);
             }
         }
     }

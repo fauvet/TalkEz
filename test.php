@@ -12,16 +12,13 @@ $tweets = ["Gros tremblement de terre à Paris, quelle catastrophe",
             "Ce nouveau film est un veritable tremblement de terre dans le millieu du cinéma",
             "#Paris #TremblementDeTerre",
             "J'aime le fromage",
-            "attentat a Paris, 20 morts",
-            "#attentat au bataclan!"];
+            "attentat a Paris, 20 mort",
+            "#Attentat au bataclan!"];
 
-$keywords = [["#tremblementdeterre",10],
-            ["catastrophe",2],
+$keywords = [["catastrophe",2],
             ["tremblement de terre",5],
             ["attentat",10],
-            ["#attentat",15],
-            ["mort",5],
-            ["morts",5]];
+            ["mort",2]];
 
 $parser = new EventParser($tweets,$keywords);
 
@@ -35,4 +32,6 @@ foreach($parser->getEvents() as $event){
     foreach($event->getEntries() as $entry){
         var_dump($entry->getData());
     }
+    var_dump($event->getHighImportanceKeyword());
+    var_dump($event->getLowImportanceKeyword());
 }

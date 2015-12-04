@@ -12,7 +12,7 @@ class EventParser
 
     private $events;
 
-    private $keyword;
+    private $keyword = [];
 
     public function __construct(array $items,array $keywords){
         $this->items = $items;
@@ -58,7 +58,7 @@ class EventParser
                 $found = false;
                 foreach($commons as $key => $common){
                     foreach($common as $entryIn){
-                        if($entryTarget->getCommonWeight($entryIn) > $entryIn->getWeight()/20){
+                        if($entryTarget->getCommonWeight($entryIn) > $entryTarget->getWeight()/30){
                             $found = true;
                             array_push($commons[$key],$entryTarget);
                             array_push($alreadyDone,$entryTarget);
