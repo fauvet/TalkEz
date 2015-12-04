@@ -1,1 +1,5 @@
-Bienvenue sur la map du monde
+<canvas id="map"></canvas>
+
+
+
+<!-- <script type='text/javascript' src="https://maps.googleapis.com/maps/api/js"></script> -->
