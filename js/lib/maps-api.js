@@ -60,14 +60,22 @@ MapsApi.prototype = {
 		);
 
 		var ptr = this;
-		
+
+		// icon des markers (centrée)
+		var markerIcon = {
+			url: '../../src/twitter.png',
+			size: new google.maps.Size(32, 32),
+			origin: new google.maps.Point(0, 0),
+			anchor: new google.maps.Point(16, 16)
+		}
+
 		// on positionne les marqueurs
 		for( var i = 0 ; i < this.element.length ; i++ ){
 			// on positionne les markers
 			this.element[i].marker = new google.maps.Marker({
 				position: this.element[i].coord,
 				map: this.map,
-				icon: '../../src/twitter2.png'
+				icon: markerIcon
 			});
 
 			// on positionne les cercles
@@ -91,13 +99,12 @@ MapsApi.prototype = {
 				content: '<h4 id="firstHeading" class="firstHeading">'+this.element[i].nom+'</h4>'+this.element[i].msg
 			});
 
+			// on créé l'évènement d'affiche de la zone de texte sur clic sur marker
 			this.element[i].marker.addListener('click', function(e, f){
 				var coord = e.latLng;
-				for( var x = 0 ; x < ptr.element.length ; x++ ){
-					console.log( ptr.element[x].coord );
+				for( var x = 0 ; x < ptr.element.length ; x++ )
 					if( ptr.element[x].lat == coord.lat() && ptr.element[x].lng == coord.lng() )
 						ptr.element[x].infoBox.open(ptr.map, ptr.element[x].marker);
-				}
 			});
 		}
 
