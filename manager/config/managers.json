@@ -6,5 +6,10 @@
     "logout":{"method": "deconnection",
       "role": -1,
       "strict": false}
+  },
+  "Twitter": {
+    "getTweetsByHashtag":{"method": "getTweetsByHashtag",
+      "role": -1,
+      "strict": false}
   }
 }
